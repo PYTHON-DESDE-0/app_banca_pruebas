@@ -1,7 +1,13 @@
 import psycopg2
 import os
 
-DATABASE_URL = os.getenv("DATABASE_URL", "dbname=postgres user=postgres password=root2025 host=localhost port=5432")
+host     = os.getenv("DATABASE_HOST", "localhost")
+port     = os.getenv("DATABASE_PORT", "5432")
+database = os.getenv("DATABASE_NAME", "Usuarios")
+user     = os.getenv("USER", "postgres")
+passwd   = os.getenv("PASS", "admin")
+
+DATABASE_URL=f"postgresql://{user}:{passwd}@{host}:{port}/{database}"
 
 def get_db_connection():
     """Establece y retorna una conexión a la base de datos."""
