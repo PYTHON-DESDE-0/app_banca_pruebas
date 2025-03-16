@@ -1,0 +1,13 @@
+# Control de versiones
+.git
+.svn
+.gitignore
+
+# Documentación Markdown
+*.md
+
+# Archivos de variables de entorno
+*.env
+
+# archivo de composicion
+Dockerfile

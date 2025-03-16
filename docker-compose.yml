@@ -1,0 +1,11 @@
+services:
+
+  backend:
+    restart: always
+    build: back_end/
+    ports:
+      - ${PUERTO_BACKEND:-8000}:8000
+
+
+
+
