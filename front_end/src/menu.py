@@ -5,6 +5,7 @@ def Menu(page: ft.Page):
     page.add(
         ft.Text('hola')
     )
+    page.update()
     
-if '__name__'== '__main__':
+if __name__== '__main__':
     ft.app(Menu)
