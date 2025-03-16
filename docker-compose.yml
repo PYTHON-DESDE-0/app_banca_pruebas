@@ -1,11 +1,28 @@
 services:
 
   backend:
+    depends_on:
+      - database-local
     restart: always
     build: back_end/
     ports:
       - ${PUERTO_BACKEND:-8000}:8000
+    env_file: back_end/.env
+    environment:
+      DATABASE_PORT: 5432    
+      DATABASE_HOST: database-local    
 
 
+  database-local:
+    restart: always
+    image: postgres:17.2-bookworm 
+    shm_size: 128mb 
+    env_file: database/.env
+    volumes:
+      - 'db-volumen-local:/var/lib/postgresql/data'
+    ports:
+      - ${PUERTO_DATABASE:-5432}:5432
 
-
+volumes:
+  db-volumen-local:
+    # external: true
