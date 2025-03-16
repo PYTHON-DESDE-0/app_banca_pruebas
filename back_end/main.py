@@ -26,7 +26,7 @@ async def get_users():
     except Exception as ex:
         return {"error": str(ex)}
 
-@app.post("/login")
+@app.get("/login")
 async def login(user_data: LoginRequest):
     """ Valida si el usuario y contraseña existen en la BD """
     conn = get_db_connection()
